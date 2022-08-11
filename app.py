@@ -34,7 +34,7 @@ symbols_price_unit = st.sidebar.selectbox('Select target currency to convert to'
 # https://api.ratesapi.io/api/latest?base=AUD&symbols=AUD
 @st.cache
 def load_data():
-    url = ''.join(['https://data.fixer.io/api/latest?base=', base_price_unit, '&symbols=', symbols_price_unit])
+    url = ''.join(['https://data.fixer.io/api/latest=', base_price_unit, '&symbols=', symbols_price_unit])
     response = requests.get(url)
     data = response.json()
     base_currency = pd.Series( data['base'], name='base_currency')
